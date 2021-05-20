@@ -4,7 +4,7 @@
       <custom-header label="Lista de Usuários" divided/>
     </div>
     <search-bar :value.sync="search" :initSearch.sync="initSearch" class="search-bar"/>
-    <infinite-scroll :endList="endList" :bottom.sync="bottom">
+    <infinite-scroll :endList="endList" :bottom.sync="bottom" :listLength="searchResult.length" :loading="loading">
       <div slot="content">
         <search-result-item v-for="(item, index) in searchResult" :key="item.id" :index="index" :model="item"/>
       </div>

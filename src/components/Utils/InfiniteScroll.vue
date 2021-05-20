@@ -1,6 +1,7 @@
 <template>
-  <div>
+  <div class="wrap">
     <slot name="content"/>
+    <div class="feedback-msg"> {{feedbackMsg}} </div>
   </div>
 
 </template>
@@ -15,6 +16,14 @@ export default {
     bottom: {
       type: Boolean,
       default: false
+    },
+    loading: {
+      type: Boolean,
+      default: true
+    },
+    listLength: {
+      type: Number,
+      default: 0
     }
   },
   created () {
@@ -28,6 +37,27 @@ export default {
       const bottomOfPage = visible + scrollY >= pageHeight - 10
       return bottomOfPage || pageHeight < visible
     }
+  },
+  computed: {
+    feedbackMsg () {
+      if (!this.listLength && !this.loading) {
+        return 'Nenhum resultado encontrado.'
+      } else if (this.endList && !this.loading) {
+        return 'Sem mais resultados.'
+      }
+    }
   }
 }
 </script>
+
+<style scoped>
+.wrap {
+  position: relative;
+}
+.feedback-msg {
+  margin: 60px auto;
+  font-size: 14px;
+  font-weight: bold;
+  color: #90A4AE;
+}
+</style>
