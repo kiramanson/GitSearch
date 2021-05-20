@@ -43,9 +43,14 @@ export default {
   },
   methods: {
     ...mapActions(['setSearchvalue', 'setGetAll']),
-    async searchUser () {
+    async searchUser (isNewSearch = true) {
       this.loading = true
       this.setSearchvalue(this.search)
+      if (isNewSearch) {
+        this.searchResult = []
+        this.page = 1
+        this.endList = false
+      }
       const result = this.getAll ? await searchUser('', this.page) : await searchUser(this.search, this.page)
       if (result && typeof result === 'object') {
         this.searchResult = this.searchResult.concat(result)
@@ -70,7 +75,7 @@ export default {
     bottom (bottom) {
       if (bottom && !this.endList) {
         this.page++
-        this.searchUser()
+        this.searchUser(false)
       }
     }
   },
