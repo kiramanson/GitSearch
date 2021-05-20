@@ -1,9 +1,10 @@
 <template>
-  <div class="wrap">
-    <slot name="content"/>
-    <div class="feedback-msg"> {{feedbackMsg}} </div>
+  <div>
+    <div class="wrap">
+      <slot name="content"/>
+      <div class="feedback-msg"> {{feedbackMsg}} </div>
+    </div>
   </div>
-
 </template>
 
 <script>
@@ -24,6 +25,10 @@ export default {
     listLength: {
       type: Number,
       default: 0
+    },
+    update: {
+      type: Boolean,
+      default: false
     }
   },
   created () {
@@ -44,6 +49,15 @@ export default {
         return 'Nenhum resultado encontrado.'
       } else if (this.endList && !this.loading) {
         return 'Sem mais resultados.'
+      }
+    }
+  },
+  watch: {
+    update (val) {
+      console.log(val)
+      if (val) {
+        this.$emit('update:bottom', this.bottomVisible())
+        this.$emit('update:update', false)
       }
     }
   }
