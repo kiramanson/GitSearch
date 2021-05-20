@@ -49,7 +49,6 @@ export default {
     ...mapActions(['setSearchvalue', 'setGetAll']),
     async getUser () {
       this.user = await getUser(this.$route.params.id)
-      console.log('userModel', this.user)
     }
   },
   computed: {
