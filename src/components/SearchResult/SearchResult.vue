@@ -61,7 +61,7 @@ export default {
       }
       this.setGetAll(false)
       this.loading = false
-      this.checkInfiniteScroll = true
+      setTimeout(() => { this.checkInfiniteScroll = true }, 1000)
     }
   },
   computed: {
