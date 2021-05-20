@@ -1,6 +1,6 @@
 <template>
   <div class="wrap">
-    <infinite-scroll :endList="endList" :bottom.sync="bottom">
+    <infinite-scroll :endList="endList" :bottom.sync="bottom" :listLength="reposList.length" :loading="loading">
       <div slot="content">
         <div v-for="(item, index) in reposList" class="item" :key="item.id">
           <div v-show="index" class="divided"/>
