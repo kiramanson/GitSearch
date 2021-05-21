@@ -7,7 +7,9 @@
       <div slot="content" >
         <div class="content">
           <h1> Search Results </h1>
-          <search-bar :value.sync="search" :initSearch.sync="initSearch" class="search-bar" showIcon/>
+          <div class="search-bar">
+            <search-bar :value.sync="search" :initSearch.sync="initSearch" showIcon/>
+          </div>
           <div class="divided"/>
           <search-result-item v-for="(item, index) in searchResult" :key="item.id" :index="index" :model="item"/>
           <div class="loading">
@@ -142,8 +144,8 @@ h1 {
   }
   .search-bar {
     position: absolute;
-    right: -190px;
-    top: -50px;
+    right: 58px;
+    top: 35px;
   }
   .divided {
     display: block;

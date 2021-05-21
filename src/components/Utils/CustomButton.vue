@@ -38,5 +38,6 @@ export default {
   margin: 5px 10px;
   color: white;
   text-transform: capitalize;
+  cursor: pointer;
 }
 </style>
