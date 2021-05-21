@@ -14,6 +14,7 @@ export default {
 </script>
 
 <style>
+
 #app {
   font-family: 'Montserrat', 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -22,6 +23,7 @@ export default {
   color: black;
   margin-top: 60px;
   overflow-x: hidden;
+  min-height: 90vh;
 }
 
 @font-face {
@@ -35,22 +37,21 @@ export default {
     background-color: #F8FAFB;
     border-radius: 20px;
   }
-  ::-webkit-scrollbar {
-    background-color: #F8FAFB;
-    border-radius: 20px;
-    height: 10px;
-    width: 5px;
-  }
-  ::-webkit-scrollbar-thumb {
-    background-color: #acacac;
-    border-radius: 20px;
-  }
+::-webkit-scrollbar {
+  background-color: #F8FAFB;
+  border-radius: 20px;
+  height: 10px;
+  width: 5px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #acacac;
+  border-radius: 20px;
+}
 
 /* desktop */
 @media ( min-width: 769px ) {
   body {
     background-color: #F8FAFB;
-    overflow-x: hidden;
   }
   #app {
     display: flex;
