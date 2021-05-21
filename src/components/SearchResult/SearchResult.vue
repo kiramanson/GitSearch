@@ -4,14 +4,18 @@
       <custom-header label="Lista de Usuários" divided/>
     </div>
     <infinite-scroll :endList="endList" :bottom.sync="bottom" :listLength="searchResult.length" :loading="loading" :update.sync="checkInfiniteScroll">
-    <infinite-scroll :endList="endList" :bottom.sync="bottom" :listLength="searchResult.length" :loading="loading">
-      <div slot="content">
-        <search-result-item v-for="(item, index) in searchResult" :key="item.id" :index="index" :model="item"/>
+      <div slot="content" >
+        <div class="content">
+          <h1> Search Results </h1>
+          <search-bar :value.sync="search" :initSearch.sync="initSearch" class="search-bar" showIcon/>
+          <div class="divided"/>
+          <search-result-item v-for="(item, index) in searchResult" :key="item.id" :index="index" :model="item"/>
+          <div class="loading">
+            <loading v-if="loading"/>
+          </div>
+        </div>
       </div>
     </infinite-scroll>
-    <div class="loading">
-      <loading v-if="loading"/>
-    </div>
   </div>
 </template>
 
@@ -95,16 +99,54 @@ export default {
 .wrap {
   display: flex;
   flex-direction: column;
-  width: 90vw;
-}
-
-.search-bar {
-  margin-bottom: 30px;
+  width: 99vw;
 }
 
 .loading {
-  position: relative;
-  margin: 20px auto;
-  height: 50px;
+  margin: 0 auto;
+  font-size: 1em;
+}
+
+h1 {
+  display: none;
+}
+
+.divided {
+  display: none;
+  border-top: 1px solid #e6dfdf;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+@media ( min-width: 769px ) {
+  .wrap {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .content {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: 800px;
+    padding: 10px 60px 60px 60px;
+    margin-top: 50px;
+    margin-left: 5px;
+    box-shadow: 0 0 5px rgba(36, 35, 35, 0.2);
+    background-color: white;
+  }
+  h1 {
+    display: flex;
+  }
+  .search-bar {
+    position: absolute;
+    right: -190px;
+    top: -50px;
+  }
+  .divided {
+    display: block;
+  }
 }
 </style>

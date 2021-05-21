@@ -57,4 +57,15 @@ span {
   margin-top: 40px;
   margin-bottom: -20px;
 }
+
+/* desktop */
+@media ( min-width: 769px ) {
+  span {
+    display: block;
+  }
+  .wrap {
+    display: block;
+    margin-top: 40px;
+  }
+}
 </style>

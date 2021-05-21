@@ -61,7 +61,7 @@ export default {
 .wrap {
   display: flex;
   flex-direction: column;
-  width: 90vw;
+  width: 100%;
 }
 
 img {
@@ -77,4 +77,5 @@ img {
   margin: 0 auto;
   margin-top: 20px;
 }
+
 </style>
