@@ -2,13 +2,15 @@
   <div class="wrap">
     <infinite-scroll :endList="endList" :bottom.sync="bottom" :listLength="reposList.length" :loading="loading">
       <div slot="content">
-        <div v-for="(item, index) in reposList" class="item" :key="item.id">
-          <div v-show="index" class="divided"/>
-          <div class="title">{{item.name}}</div>
-          <div class="description">{{item.description}}</div>
-          <div class="footer">
-            <div class="language" v-if="item.language"><div class="language-ball"/>{{item.language}}</div>
-            <div class="updated">Atualizado em {{formateDate(item.updated_at)}}</div>
+        <div class="content">
+          <div v-for="(item, index) in reposList" class="item" :key="item.id">
+            <div v-show="index" class="divided"/>
+            <div class="title">{{item.name}}</div>
+            <div class="description">{{item.description}}</div>
+            <div class="footer">
+              <div class="language" v-if="item.language"><div class="language-ball"/>{{item.language}}</div>
+              <div class="updated">Atualizado em {{formateDate(item.updated_at)}}</div>
+            </div>
           </div>
         </div>
       </div>
@@ -72,9 +74,7 @@ export default {
 
 <style scoped>
 .wrap {
-  display: flex;
   flex-direction: column;
-  text-align: left;
   font-weight: bold;
   color: #263238;
   margin-left: 10px;
@@ -96,16 +96,19 @@ export default {
   margin-left: 5px;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-height: 35px;
+  max-height: 38px;
+  width: 90vw;
 }
 
 .item {
   color: #162668;
   margin-top: 40px;
   margin-bottom: -20px;
+  text-align: left;
 }
 
 .footer {
+  position: relative;
   display: flex;
 }
 
@@ -142,6 +145,38 @@ export default {
 .loading {
   position: relative;
   margin: 20px auto;
-  height: 50px;
+  font-size: 32px;
+}
+
+/* desktop */
+@media ( min-width: 769px ) {
+  span {
+    display: block;
+  }
+  .wrap {
+    display: block;
+    margin-top: 40px;
+  }
+  .item {
+    width: 600px;
+    height: 70px;
+  }
+  .updated {
+    position: absolute;
+    top: -30px;
+    right: 0px;
+    font-size: 8px;
+    color: #586069;
+  }
+  .language {
+    position: absolute;
+    top: -50px;
+    left: 492px;
+    font-size: 8px;
+    color: #586069;
+  }
+  .description {
+    width: 400px;
+  }
 }
 </style>

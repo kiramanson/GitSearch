@@ -3,21 +3,25 @@
     <div class="header">
       <custom-header label="Perfil"/>
     </div>
-    <div class='profile-header'>
-      <div class="banner"/>
-      <img :src="user.avatar_url" class="avatar"/>
-      <span class="name"> {{user.name}} </span>
-      <div class="username">
-        <i class="fas fa-user"/> {{user.login}}
+    <div class="container">
+      <div class='profile-header'>
+        <div class="banner"/>
+        <img :src="user.avatar_url" class="avatar"/>
+        <span class="name"> {{user.name}} </span>
+        <div class="username">
+          <i class="fas fa-user"/> {{user.login}}
+        </div>
       </div>
-    </div>
-    <infor-bar :model="inforModel"/>
-    <div class="menu">
-      <menu-bar :model.sync="menuModel"/>
-    </div>
-    <div class="content">
-      <about :model="user" v-if="menuModel[0].active"/>
-      <projects :model="user" v-else-if="menuModel[1].active"/>
+      <infor-bar class="infor-bar" :model="inforModel"/>
+      <div class="grid">
+        <div class="menu">
+          <menu-bar :model.sync="menuModel"/>
+        </div>
+        <div class="content">
+          <about :model="user" v-if="menuModel[0].active"/>
+          <projects :model="user" v-else-if="menuModel[1].active"/>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -75,7 +79,7 @@ export default {
 .wrap {
   display: flex;
   flex-direction: column;
-  width: 90vw;
+  width: 100%;
 }
 
 .profile-header {
@@ -87,13 +91,14 @@ export default {
   height: 145px;
   margin-left: -8px;
   margin-bottom: 40px;
-  background-image: url('../../assets/banner.jpg');
+  background-image: url('../../assets/banner.png');
   background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .avatar {
   position: absolute;
-  left: 30vw;
+  left: 32vw;
   top: 40px;
   height: 120px;
   width: 120px;
@@ -106,7 +111,7 @@ export default {
   color: #162668;
   font-weight: bold;
   font-size: 24px;
-  margin: 10px 0 0 10px;
+  margin: 10px 0 0 0;
 }
 
 .username {
@@ -117,7 +122,7 @@ export default {
   color: #90A4AE;
   font-size: 16px;
   font-weight: bold;
-  margin: 10px 0 0 10px;
+  margin: 10px 0 0 0;
 }
 
 .fa-user {
@@ -125,4 +130,79 @@ export default {
   padding-right: 10px;
 }
 
+/* desktop */
+@media ( min-width: 769px ) {
+  .wrap {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .container {
+  position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: 800px;
+    padding: 10px 60px 60px 60px;
+    margin-top: 50px;
+    margin-left: 5px;
+    box-shadow: 0 0 5px rgba(36, 35, 35, 0.2);
+    background-color: white;
+    overflow-x: hidden;
+  }
+  .banner {
+    position: absolute;
+    top: -10px;
+    left: -55px;
+    width: 950px;
+    height: 200px;
+    background-size: cover;
+    background-position: bottom;
+  }
+  .avatar {
+    position: absolute;
+    left: -32px;
+    top: 70px;
+    height: 150px;
+    width: 150px;
+  }
+  .infor-bar {
+    position: absolute;
+    top: 110px;
+    left: 600px;
+    z-index: 2;
+  }
+  .name {
+    position: absolute;
+    top: 120px;
+    left: 155px;
+    z-index: 21;
+    white-space: nowrap;
+  }
+  .username {
+    position: absolute;
+    top: 150px;
+    left: 175px;
+    font-size: 13px;
+    z-index: 2;
+  }
+  .grid {
+    display: flex;
+    justify-content: flex-start;
+    min-height: 600px;
+  }
+  .menu {
+    border-right: #ECEFF1 1px solid;
+    width: 217px;
+    margin-top: 300px;
+    margin-left: -70px;
+  }
+  .content {
+    width: 588px;
+    margin-top: 200px;
+    margin-left: 40px;
+    width: 610px;
+  }
+}
 </style>

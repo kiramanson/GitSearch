@@ -54,7 +54,6 @@ export default {
   },
   watch: {
     update (val) {
-      console.log(val)
       if (val) {
         this.$emit('update:bottom', this.bottomVisible())
         this.$emit('update:update', false)
@@ -65,13 +64,20 @@ export default {
 </script>
 
 <style scoped>
-.wrap {
-  position: relative;
-}
 .feedback-msg {
-  margin: 60px auto;
+  height: 50px;
   font-size: 14px;
   font-weight: bold;
   color: #90A4AE;
+  display: flex;
+  justify-content: center;
+  margin-top: 70px;
+}
+
+/* desktop */
+@media ( min-width: 769px ) {
+  .feedback-msg {
+    margin-top: 100px;
+  }
 }
 </style>

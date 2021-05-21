@@ -26,7 +26,6 @@ export default {
 .wrap {
   display: flex;
   flex-direction: row;
-  justify-content: center;
   font-weight: bold;
   font-size: 14px;
   margin-top: 20px;

@@ -11,7 +11,6 @@ export default {
 
 <style scoped>
 .loading {
-  position: absolute;
   animation: 3s linear infinite loading;
   color: rgb(52, 150, 207);
 }

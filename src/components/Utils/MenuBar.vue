@@ -42,4 +42,12 @@ export default {
   margin-top: 20px;
   font-size: 16px;
 }
+
+@media ( min-width: 769px ) {
+  .wrap {
+    display: flex;
+    flex-direction: column;
+    width: 220px;
+  }
+}
 </style>

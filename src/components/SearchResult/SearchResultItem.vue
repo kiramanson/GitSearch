@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wrap">
     <div v-show="index" class="divided"/>
     <div class="item" @click="gotoUser">
       <img :src="model.avatar_url"/>
@@ -45,8 +45,7 @@ export default {
 
 img {
   display: flex;
-  height: 50px;
-  width: 50px;
+  max-height: 50px;
   margin-right: 10px;
   border-radius: 50%;
   border: #ECEFF1 3px solid;
@@ -62,5 +61,30 @@ img {
   border-top: 1px solid #e6dfdf;
   height: 10px;
   width: 100%;
+}
+
+/* desktop */
+@media ( min-width: 769px ) {
+  .wrap {
+    display: flex;
+    max-width: 160px;
+  }
+  .item {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: #DEDEDE 1px solid;
+    width: 140px;
+    height: 215px;
+  }
+  img {
+    max-height: 100px;
+    margin-right: 0px;
+    margin-bottom: 20px;
+  }
+  .divided {
+    display: none;
+  }
 }
 </style>
