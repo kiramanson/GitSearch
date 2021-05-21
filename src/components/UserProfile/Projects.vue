@@ -2,15 +2,13 @@
   <div class="wrap">
     <infinite-scroll :endList="endList" :bottom.sync="bottom" :listLength="reposList.length" :loading="loading">
       <div slot="content">
-        <div class="content">
-          <div v-for="(item, index) in reposList" class="item" :key="item.id">
-            <div v-show="index" class="divided"/>
-            <div class="title">{{item.name}}</div>
-            <div class="description">{{item.description}}</div>
-            <div class="footer">
-              <div class="language" v-if="item.language"><div class="language-ball"/>{{item.language}}</div>
-              <div class="updated">Atualizado em {{formateDate(item.updated_at)}}</div>
-            </div>
+        <div v-for="(item, index) in reposList" class="item" :key="item.id">
+          <div v-show="index" class="divided"/>
+          <div class="title">{{item.name}}</div>
+          <div class="description">{{item.description}}</div>
+          <div class="footer">
+            <div class="language" v-if="item.language"><div class="language-ball"/>{{item.language}}</div>
+            <div class="updated">Atualizado em {{formateDate(item.updated_at)}}</div>
           </div>
         </div>
       </div>

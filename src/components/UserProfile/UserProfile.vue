@@ -87,13 +87,15 @@ export default {
 }
 
 .banner {
-  width: 100.5vw;
+  width: 105vw;
+  overflow-x: hidden;
   height: 145px;
   margin-left: -8px;
   margin-bottom: 40px;
   background-image: url('../../assets/banner.png');
   background-size: cover;
   background-repeat: no-repeat;
+  opacity: .7;
 }
 
 .avatar {
@@ -140,7 +142,7 @@ export default {
     flex-direction: column;
   }
   .container {
-  position: relative;
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     width: 800px;
@@ -158,14 +160,14 @@ export default {
     width: 950px;
     height: 200px;
     background-size: cover;
-    background-position: bottom;
+    background-position: 25% 65%;;
   }
   .avatar {
     position: absolute;
-    left: -32px;
-    top: 70px;
-    height: 150px;
-    width: 150px;
+    left: -45px;
+    top: 60px;
+    height: 170px;
+    width: 170px;
   }
   .infor-bar {
     position: absolute;
@@ -176,7 +178,7 @@ export default {
   .name {
     position: absolute;
     top: 120px;
-    left: 155px;
+    left: 165px;
     z-index: 21;
     white-space: nowrap;
   }
